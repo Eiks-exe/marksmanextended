@@ -1,0 +1,13 @@
+{
+  "itemGroup.marksmanextended": "Example Mod Tab",
+  "block.marksmanextended.example_block": "Example Block",
+  "item.marksmanextended.example_item": "Example Item",
+
+  "marksmanextended.configuration.title": "marksmanextended Configs",
+  "marksmanextended.configuration.section.marksmanextended.common.toml": "marksmanextended Configs",
+  "marksmanextended.configuration.section.marksmanextended.common.toml.title": "marksmanextended Configs",
+  "marksmanextended.configuration.items": "Item List",
+  "marksmanextended.configuration.logDirtBlock": "Log Dirt Block",
+  "marksmanextended.configuration.magicNumberIntroduction": "Magic Number Text",
+  "marksmanextended.configuration.magicNumber": "Magic Number"
+}

@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.eiks.marksmanextented.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ArrowEntityMixin",
+    "BulletEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

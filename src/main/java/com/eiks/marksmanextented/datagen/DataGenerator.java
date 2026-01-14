@@ -1,0 +1,26 @@
+package com.eiks.marksmanextented.datagen;
+
+import com.eiks.marksmanextented.MarksmanExtended;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+
+import java.util.concurrent.CompletableFuture;
+
+@EventBusSubscriber(modid = MarksmanExtended.MOD_ID)
+public class DataGenerator {
+    @SubscribeEvent
+    public static void gatherData(GatherDataEvent event){
+        net.minecraft.data.DataGenerator generator = event.getGenerator();
+        PackOutput packOutput = generator.getPackOutput();
+        ExistingFileHelper helper = event.getExistingFileHelper();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
+        generator.addProvider(event.includeServer(), new DataPackProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModSoundDefinitionProvider(packOutput, helper));
+
+    }
+}

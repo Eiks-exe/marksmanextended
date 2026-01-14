@@ -1,0 +1,15 @@
+{
+  "musket_headshot": {
+    "replace": true,
+    "sounds": [
+      {
+        "attenuation_distance": 8,
+        "name": "marksmanextended:musket_headshot_2",
+        "preload": true,
+        "volume": 5.0,
+        "weight": 2
+      }
+    ],
+    "subtitle": "sound.marksmanexetended.musket_headshot"
+  }
+}
