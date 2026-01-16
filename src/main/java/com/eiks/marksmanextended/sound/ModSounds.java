@@ -1,7 +1,7 @@
-package com.eiks.marksmanextented.sound;
+package com.eiks.marksmanextended.sound;
 
 
-import com.eiks.marksmanextented.MarksmanExtended;
+import com.eiks.marksmanextended.MarksmanExtended;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;

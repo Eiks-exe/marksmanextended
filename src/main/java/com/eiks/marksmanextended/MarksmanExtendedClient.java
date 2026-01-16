@@ -1,4 +1,4 @@
-package com.eiks.marksmanextented;
+package com.eiks.marksmanextended;
 
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;

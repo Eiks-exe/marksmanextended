@@ -1,6 +1,6 @@
-package com.eiks.marksmanextented.datagen;
+package com.eiks.marksmanextended.datagen;
 
-import com.eiks.marksmanextented.MarksmanExtended;
+import com.eiks.marksmanextended.MarksmanExtended;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;

@@ -1,4 +1,4 @@
-package com.eiks.marksmanextented.enchantment;
+package com.eiks.marksmanextended.enchantment;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ModEnchantmentUtils {
     public static final Registry<Item> itemRegistry = BuiltInRegistries.ITEM;
-    public record NameSpace(String name_space, String path) {};
+    public record NameSpace(String name_space, String path) {}
     public static List<Holder<Item>> createItemHolderList(List<NameSpace> nameSpaces) {
         List<Holder<Item>> itemHolderList = new ArrayList<>();
         for (NameSpace nameSpace : nameSpaces) {

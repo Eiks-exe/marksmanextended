@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.eiks.marksmanextented.mixin",
+  "package": "com.eiks.marksmanextended.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ArrowEntityMixin",

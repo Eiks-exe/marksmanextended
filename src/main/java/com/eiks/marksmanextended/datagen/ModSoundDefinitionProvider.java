@@ -1,7 +1,7 @@
-package com.eiks.marksmanextented.datagen;
+package com.eiks.marksmanextended.datagen;
 
-import com.eiks.marksmanextented.MarksmanExtended;
-import com.eiks.marksmanextented.sound.ModSounds;
+import com.eiks.marksmanextended.MarksmanExtended;
+import com.eiks.marksmanextended.sound.ModSounds;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.data.SoundDefinition;

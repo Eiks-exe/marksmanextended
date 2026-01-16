@@ -1,7 +1,7 @@
-package com.eiks.marksmanextented.datagen;
+package com.eiks.marksmanextended.datagen;
 
-import com.eiks.marksmanextented.MarksmanExtended;
-import com.eiks.marksmanextented.enchantment.ModEnchantment;
+import com.eiks.marksmanextended.MarksmanExtended;
+import com.eiks.marksmanextended.enchantment.ModEnchantment;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;

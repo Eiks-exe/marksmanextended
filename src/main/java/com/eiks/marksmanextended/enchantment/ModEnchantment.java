@@ -1,6 +1,6 @@
-package com.eiks.marksmanextented.enchantment;
+package com.eiks.marksmanextended.enchantment;
 
-import com.eiks.marksmanextented.MarksmanExtended;
+import com.eiks.marksmanextended.MarksmanExtended;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -11,7 +11,7 @@ import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
-import com.eiks.marksmanextented.enchantment.ModEnchantmentUtils.NameSpace;
+import com.eiks.marksmanextended.enchantment.ModEnchantmentUtils.NameSpace;
 
 import java.util.List;
 
