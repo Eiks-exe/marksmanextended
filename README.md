@@ -1,25 +1,25 @@
+# Marksman Extended
 
-Installation information
-=======
+Marksman Extended is a mod that aims to enhance Minecraft’s ranged‑combat experience by adding precision‑based mechanics, scalable damage bonuses, and satisfying combat feedback.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Features
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+### Sharpshooter Enchantment
+A new enchantment that increases **headshot damage per level**:
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+| Weapon Type | Headshot Multiplier            |
+|-------------|--------------------------------|
+| Bow         | +50% × level                   |
+| Crossbow    | +50% × level                   |
+| Muskets (from ewewukek's Musket Mod) | +35% × level |
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+Sharpshooter rewards accuracy and precision, making well‑placed shots significantly more impactful.
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+### Headshot Indicators
+Marksman Extended provides clear feedback when you land a headshot:
+
+- Visual indicator (can be toggled in the mod configuration)
+- Audio indicator
+
+These cues make ranged combat feel more responsive and satisfying.
+
