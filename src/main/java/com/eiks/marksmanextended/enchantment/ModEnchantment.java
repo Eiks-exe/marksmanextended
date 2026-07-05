@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import com.eiks.marksmanextended.enchantment.ModEnchantmentUtils.NameSpace;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModEnchantment {
@@ -23,19 +24,30 @@ public class ModEnchantment {
             ResourceLocation.fromNamespaceAndPath(MOD_ID, "sharpshooter")
     );
 
-    public static List<Holder<Item>> sharpshooterHolderList = ModEnchantmentUtils.createItemHolderList(
-        List.of(
-                new NameSpace("minecraft", "bow"),
-                new NameSpace("minecraft", "crossbow"),
-                new NameSpace("musketmod", "musket"),
-                new NameSpace("musketmod", "musket_with_scope")
-        )
-    );
-    public static final HolderSet<Item> sharpshooterHolderSet = ModEnchantmentUtils.createHolderSet(sharpshooterHolderList);
+    public static List<Holder<Item>> sharpshooterHolderList;
+    public static HolderSet<Item> sharpshooterHolderSet;
+    public static void initItemLists() {
+        List<NameSpace> items = new ArrayList<>();
+
+        items.add(new NameSpace("minecraft", "bow"));
+        items.add(new NameSpace("minecraft", "crossbow"));
+
+        if(MarksmanExtended.MusketModLoaded) {
+            items.add(new NameSpace("musketmod", "musket"));
+            items.add(new NameSpace("musketmod", "musket_with_scope"));
+        }
+
+        sharpshooterHolderList = ModEnchantmentUtils.createItemHolderList(items);
+        sharpshooterHolderSet = ModEnchantmentUtils.createHolderSet(sharpshooterHolderList);
+    }
+
+
+
 
     public static void bootstrap(BootstrapContext<Enchantment> context){
+
+        initItemLists();
         var enchantments = context.lookup(Registries.ENCHANTMENT);
-        var items = context.lookup(Registries.ITEM);
 
         register(context, SHARPSHOOTER,
                 Enchantment.enchantment(

@@ -33,25 +33,16 @@ public class MarksmanExtended {
     public static final ResourceLocation HEADSHOT_SPRITE =
             ResourceLocation.fromNamespaceAndPath(MOD_ID, "textures/gui/headshot/headshot_2.png");
 
+
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public MarksmanExtended(IEventBus modEventBus, ModContainer modContainer) {
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        // Register the Deferred Register to the mod event bus so blocks get registered
-        // Register the Deferred Register to the mod event bus so tabs get registered
-
-        // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (marksmanextended) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
-
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
 
         ModSounds.register(modEventBus);
     }
@@ -59,11 +50,17 @@ public class MarksmanExtended {
     private void commonSetup(FMLCommonSetupEvent event) {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
+        init();
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
     }
 
+    public static boolean MusketModLoaded;
+
+    public static void init() {
+        MusketModLoaded = net.neoforged.fml.ModList.get().isLoaded("musketmod");
+    }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
