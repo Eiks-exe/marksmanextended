@@ -16,11 +16,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": [
-    "minecraft:bow",
-    "minecraft:crossbow",
-    "musketmod:musket",
-    "musketmod:musket_with_scope"
-  ],
+  "supported_items": "#marksmanextended:sharpshooter_compatible",
   "weight": 5
 }

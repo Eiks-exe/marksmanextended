@@ -50,17 +50,12 @@ public class MarksmanExtended {
     private void commonSetup(FMLCommonSetupEvent event) {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
-        init();
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
     }
 
-    public static boolean MusketModLoaded;
 
-    public static void init() {
-        MusketModLoaded = net.neoforged.fml.ModList.get().isLoaded("musketmod");
-    }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
@@ -80,4 +75,5 @@ public class MarksmanExtended {
         // Draw the texture from top-left corner (0,0) of the PNG
         guiGraphics.blit(HEADSHOT_SPRITE, cx, cy, 0, 0, size, size, size, size);
     }
+
 }
