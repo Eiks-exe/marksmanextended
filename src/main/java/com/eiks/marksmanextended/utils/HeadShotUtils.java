@@ -2,22 +2,38 @@ package com.eiks.marksmanextended.utils;
 
 import com.eiks.marksmanextended.sound.ModSounds;
 import net.minecraft.client.Minecraft;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
+import net.minecraft.network.protocol.game.ClientboundAnimatePacket;
+import net.minecraft.server.level.ServerLevel;
+import com.eiks.marksmanextended.Config;
 
 public class HeadShotUtils {
+
+    public static void critFeedback(Entity target) {
+        if (!Config.CRIT_PARTICLES.get()) return;
+        if (!(target.level() instanceof ServerLevel level)) return;
+
+        // vanilla crit particles on the target, visible to everyone tracking it
+        level.getChunkSource().broadcastAndSend(
+                target, new ClientboundAnimatePacket(target, ClientboundAnimatePacket.CRITICAL_HIT));
+        level.playSound(null, target.getX(), target.getEyeY(), target.getZ(),
+                SoundEvents.PLAYER_ATTACK_CRIT, SoundSource.PLAYERS, 1.0f, 1.0f);
+    }
+
+    public static boolean isHeadshot(Entity entity, Vec3 hitPos) {
+        double eyeY = entity.getEyeY();
+        double headHeight = Math.max(0.0, entity.getBoundingBox().maxY - eyeY);
+        return hitPos.y >= eyeY - headHeight;
+    }
     public static boolean isHeadshot(Entity entity, Projectile projectile){
-        AABB boundingBox = entity.getBoundingBox();
-        Vec3 eyesPos = entity.getEyePosition();
-        double headTopY = boundingBox.maxY;
-        double r = headTopY - eyesPos.y;
-        Vec3 hitVec = projectile.position();
-        return (hitVec.y >= (eyesPos.y - r)) && projectile.getOwner()!= null ;
+        return isHeadshot(entity, projectile.position());
     }
 
 
@@ -33,7 +49,7 @@ public class HeadShotUtils {
         private static final long DISPLAY_TIME_MS = 300;
 
         public static void trigger(){
-
+            if (!Config.HEADSHOT_MARKER.get()) return;
             lastHeadshotTime = System.currentTimeMillis();
         }
 

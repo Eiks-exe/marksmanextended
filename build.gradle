@@ -17,8 +17,9 @@ version = mod_version
 group = mod_group_id
 
 repositories {
-    // Add here additional repositories if required by some of the dependencies below.
+    // Add here additional repositories if required by some of the dependencies below
 }
+
 
 base {
     archivesName = mod_id
@@ -27,7 +28,7 @@ base {
 // Mojang ships Java 21 to end users in 1.21.1, so mods should target Java 21.
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
-//minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
+//minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accessTransformer.cfg')
 //minecraft.accessTransformers.entry public net.minecraft.client.Minecraft textureManager # textureManager
 
 // Default run configurations.
@@ -35,7 +36,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 runs {
     // applies to all the run configs below
     configureEach {
-        // Recommended logging data for a userdev environment
+        // Recommended logging data for a userDev environment
         // The markers can be added/remove as needed separated by commas.
         // "SCAN": For mods scan.
         // "REGISTRIES": For firing of registry events.
@@ -60,9 +61,9 @@ runs {
         argument '--nogui'
     }
 
-    // This run config launches GameTestServer and runs all registered gametests, then exits.
-    // By default, the server will crash when no gametests are provided.
-    // The gametest system is also enabled by default for other run configs under the /test command.
+    // This run config launches GameTestServer and runs all registered gameTests, then exits.
+    // By default, the server will crash when no gameTests are provided.
+    // The gameTest system is also enabled by default for other run configs under the /test command.
     gameTestServer {
         systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
     }
@@ -71,7 +72,7 @@ runs {
         // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
         // workingDirectory project.file('run-data')
 
-        // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+        // Specify the modId for data generation, where to output the resulting resource, and where to look for existing resources.
         arguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
     }
 }
@@ -90,32 +91,22 @@ configurations {
 dependencies {
     // Specify the version of Minecraft to use.
     // Depending on the plugin applied there are several options. We will assume you applied the userdev plugin as shown above.
-    // The group for userdev is net.neoforged, the module name is neoforge, and the version is the same as the neoforge version.
+    // The group for userDev is net.neoforged, the module name is neoforge, and the version is the same as the neoforge version.
     // You can however also use the vanilla plugin (net.neoforged.gradle.vanilla) to use a version of Minecraft without the neoforge loader.
     // And its provides the option to then use net.minecraft as the group, and one of; client, server or joined as the module name, plus the game version as version.
     // For all intends and purposes: You can treat this dependency as if it is a normal library you would use.
     implementation "net.neoforged:neoforge:${neo_version}"
 
-    // Example optional mod dependency with JEI
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-    // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
-    // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
-    // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
-    // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
 
-    // Example mod dependency using a mod jar from ./libs with a flat dir repository
-    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-    // The group id is ignored when searching -- in this case, it is "blank"
-    // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
-
-    // Example mod dependency using a file as dependency
-    // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
     implementation files("libs/musketmod-1.21.1-neoforge-1.5.4.jar")
     implementation files("libs/cloth-config-15.0.140-neoforge.jar")
     implementation files("libs/moonlight-1.21-2.29.3-neoforge.jar")
     implementation files("libs/dummmmmmy-1.21-2.0.11-neoforge.jar")
+    implementation files("libs/irons_artifice-1.21.1-1.1.0.jar")
+    implementation files("libs/irons_lib-1.21.1-2.2.0.jar")
+    implementation files("libs/geckolib-neoforge-1.21.1-4.9.3.jar")
     // Example project dependency using a sister or child project:
-    // implementation project(":myproject")
+    // implementation project(":myProject")
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

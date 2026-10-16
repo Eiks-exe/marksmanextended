@@ -1,0 +1,10 @@
+{
+  "enchantment.marksmanextended.sharpshooter": "Sharpshooter",
+  "marksmanextended.configuration.critParticles": "Crit particles",
+  "marksmanextended.configuration.critParticles.tooltip": "Show crit particles on the target when a headshot lands.",
+  "marksmanextended.configuration.headshotDamageBonus": "Artifice headshot bonus",
+  "marksmanextended.configuration.headshotDamageBonus.tooltip": "Apply the headshot damage multiplier to Iron's Arms 'n Artifice guns.",
+  "marksmanextended.configuration.showHeadshotMarker": "Headshot marker",
+  "marksmanextended.configuration.showHeadshotMarker.tooltip": "Show the crosshair marker when you land a headshot.",
+  "marksmanextended.configuration.title": "Marksman Extended"
+}

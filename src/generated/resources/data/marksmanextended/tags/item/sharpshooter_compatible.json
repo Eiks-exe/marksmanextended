@@ -1,0 +1,14 @@
+{
+  "values": [
+    "minecraft:bow",
+    "minecraft:crossbow",
+    {
+      "id": "musketmod:musket",
+      "required": false
+    },
+    {
+      "id": "musketmod:musket_with_scope",
+      "required": false
+    }
+  ]
+}

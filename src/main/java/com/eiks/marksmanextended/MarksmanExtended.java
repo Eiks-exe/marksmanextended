@@ -8,6 +8,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -21,7 +22,8 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(MarksmanExtended.MOD_ID)
 public class MarksmanExtended {
@@ -41,9 +43,9 @@ public class MarksmanExtended {
 
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
-
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.COMMON_SPEC);
+        modContainer.registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_SPEC);
+        modContainer.registerConfig(ModConfig.Type.SERVER, Config.SERVER_SPEC);
         ModSounds.register(modEventBus);
     }
 
@@ -74,6 +76,8 @@ public class MarksmanExtended {
         RenderSystem.setShaderTexture(0, HEADSHOT_SPRITE);
         // Draw the texture from top-left corner (0,0) of the PNG
         guiGraphics.blit(HEADSHOT_SPRITE, cx, cy, 0, 0, size, size, size, size);
+        guiGraphics.setColor(1f, 0.05f, 0.05f, 0);
+        RenderSystem.disableBlend();
     }
 
 }
